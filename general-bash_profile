@@ -1,0 +1,22 @@
+### Aliases
+
+# Python
+alias py=python
+
+# Google cloud 
+alias gc='gcloud compute'
+alias gc-smt='gcloud compute instances set-machine-type'
+alias gc-s='gcloud compute instances start'
+alias gc-ssh='gcloud compute ssh'
+
+# ls
+alias ll='ls -lah'
+
+# Path stuff
+alias rp='realpath'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'

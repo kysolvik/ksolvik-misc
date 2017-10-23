@@ -5,9 +5,12 @@ alias py=python
 
 # Google cloud 
 alias gc='gcloud compute'
-alias gc-smt='gcloud compute instances set-machine-type'
+alias gc-setm='gcloud compute instances set-machine-type'
 alias gc-s='gcloud compute instances start'
 alias gc-ssh='gcloud compute ssh'
+alias gc-l='gcloud compute instances list'
+alias gc-stop='gcloud compute instances stop'
+alias gc-scp='gcloud compute scp'
 
 # ls
 alias ll='ls -lah'

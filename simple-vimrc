@@ -9,6 +9,7 @@ syntax enable                        " enable syntax processing
 set tabstop=4                 " number of visual spaces per TAB
 set softtabstop=4        " number of spaces in tab when editing
 set expandtab                                 " tabs are spaces
+set shiftwidth=4                         " set indent size to 4
 
 " UI Config ---------------------------------------------------
 set relativenumber                 " show relative line numbers
@@ -21,12 +22,6 @@ set wildmenu             " visual autocomplete for command menu
 set lazyredraw                        " redraw only when needed
 set showmatch                       " highlight matching [{()}]
 match ErrorMsg '\%>80v.\+'  " text > 80 columns shows up in red
-
-" Folding -----------------------------------------------------
-set foldenable                                 " enable folding
-set foldlevelstart=10              " open most folds by default
-set foldnestmax=10                     " 10 nested fold maximum
-set foldmethod=indent
 
 " Comment -----------------------------------------------------
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
@@ -46,7 +41,6 @@ set hlsearch                                " highlight matches
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
-
 " new commands for moving to beginning/end of line
 nnoremap B ^
 nnoremap E $
@@ -58,3 +52,4 @@ inoremap jk <esc>
 "space saves
 nnoremap <space> :w<CR>
 nnoremap <leader><space> :q<CR>
+

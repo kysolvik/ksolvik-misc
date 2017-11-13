@@ -1,6 +1,6 @@
 " Vimrc
 " Kylen Solvik
-" From: https://dougblack.io/words/a-good-vimrc.html
+" Mostly from: https://dougblack.io/words/a-good-vimrc.html
 
 " Colors ------------------------------------------------------
 syntax enable                        " enable syntax processing

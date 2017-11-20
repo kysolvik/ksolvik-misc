@@ -11,6 +11,15 @@ alias gc-ssh='gcloud compute ssh'
 alias gc-l='gcloud compute instances list'
 alias gc-stop='gcloud compute instances stop'
 alias gc-scp='gcloud compute scp'
+alias gc-setp='gcloud config set project'
+# Function for setting machine type and starting
+gc-3s() {
+    gcloud compute instances set-machine-type $1 --machine-type=$2
+    sleep 2
+    gcloud compute instances start $1
+    sleep 2
+    gcloud compute ssh $1
+}
 
 # ls
 alias ll='ls -lah'

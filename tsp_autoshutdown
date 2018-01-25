@@ -1,0 +1,15 @@
+#!/bin/bash
+# autoshutdown script for taskspooler
+
+mkdir -p ./logs
+  
+while [ $(tsp | egrep -c 'running|queued') -gt 0 ]
+do
+  echo 'sleeping...'
+  sleep 60
+done
+
+cp /tmp/ts-out.* ./logs/
+tsp > ./logs/tsplog.txt
+
+sudo shutdown -h now

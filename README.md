@@ -1,2 +1,2 @@
 # ksolvik-misc
-Miscellaneous files, code bits, etc.
+Miscellaneous dot files, useful scripts, etc.

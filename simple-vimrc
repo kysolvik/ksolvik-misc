@@ -17,9 +17,6 @@ set shiftwidth=4                         " set indent size to 4
 " UI Config ---------------------------------------------------
 set relativenumber                 " show relative line numbers
 set number                           " show current line number
-" turn off and on numbers easily (copy mode, copy off)
-nnoremap <leader>cm :set nonu norelativenumber<CR>
-nnoremap <leader>co :set nu relativenumber<CR>
 set ruler                                   " show clumn number
 set showcmd                        " show command in bottom bar
 set cursorline                         " highlight current line
@@ -51,8 +48,13 @@ nnoremap B ^
 nnoremap E $
 
 " Fancy keybindings -------------------------------------------
-" jk is excape
+" jk is escape
 inoremap jk <esc>
 "space saves
 nnoremap <space> :w<CR>
 nnoremap <leader><space> :q<CR>
+" Copy and paste modes (Copy/Paste Mode, Copy/Paste Off)
+nnoremap <leader>cm :set nonu norelativenumber<CR>
+nnoremap <leader>co :set nu relativenumber<CR>
+nnoremap <leader>pm :set paste<CR>
+nnoremap <leader>po :set nopaste <CR>

@@ -29,8 +29,10 @@ gc-2s() {
     gcloud compute ssh $1
 }
 
-# ls
+# Misc bash aliases
 alias ll='ls -lah'
+alias histg='history | grep'
+alias hist='history'
 
 # Path stuff
 alias rp='realpath'

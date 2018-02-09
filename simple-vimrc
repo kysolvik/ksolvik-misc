@@ -27,7 +27,6 @@ filetype indent on        " load filetype-specific indent files
 set wildmenu             " visual autocomplete for command menu
 set lazyredraw                        " redraw only when needed
 set showmatch                       " highlight matching [{()}]
-match ErrorMsg '\%>80v.\+'  " text > 80 columns shows up in red
 
 " Comment -----------------------------------------------------
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '

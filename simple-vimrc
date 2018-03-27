@@ -47,6 +47,9 @@ nnoremap k gk
 nnoremap B ^
 nnoremap E $
 
+" Folding -----------------------------------------------------
+nnoremap <leader><tab> za
+
 " Fancy keybindings -------------------------------------------
 " jk is escape
 inoremap jk <esc>

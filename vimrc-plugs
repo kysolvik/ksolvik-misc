@@ -1,4 +1,4 @@
-bin           hd60tx70.zip  quickaccess  tmin_30s_esri.zip
+
 " Vim-Plug ----------------------------------------------------
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -14,15 +14,8 @@ call plug#begin('~/.vim/plugged')
 " Syntastic
 Plug 'vim-syntastic/syntastic'
 
-" Deocomplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+" VimCompletesMe
+Plug 'ajh17/VimCompletesMe'
 
 " Python-mode
 Plug 'python-mode/python-mode'

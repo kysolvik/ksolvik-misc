@@ -84,6 +84,8 @@ Plug 'ajh17/VimCompletesMe'
 " Python-mode
 Plug 'python-mode/python-mode'
 let g:pymode_python = 'python3'
+set completeopt=menu " Prevent annoying doc popup.
+let g:pymode_rope_complete_on_dot = 0 " Only autocomplete on tab.
 
 " Vim Airline
 Plug 'vim-airline/vim-airline'

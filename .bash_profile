@@ -71,3 +71,8 @@ alias .5='cd ../../../../..'
 if [ -f ~/.bashrc ]; then 
     source ~/.bashrc 
 fi
+
+# Initiate autojump
+if [ -f /usr/share/autojump/autojump.sh ];then
+    . /usr/share/autojump/autojump.sh
+fi

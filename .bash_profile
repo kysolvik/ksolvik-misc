@@ -66,3 +66,8 @@ alias ....='cd ../../../../'
 alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+
+# Source .bashrc
+if [ -f ~/.bashrc ]; then 
+    source ~/.bashrc 
+fi

@@ -1,3 +1,4 @@
+### SSH
 # Start ssh-agent
 SSH_ENV="$HOME/.ssh/environment"
 
@@ -11,7 +12,6 @@ function start_agent {
 }
 
 # Source SSH settings, if applicable
-
 if [ -f "${SSH_ENV}" ]; then
     . "${SSH_ENV}" > /dev/null
     #ps ${SSH_AGENT_PID} doesn't work under cywgin
@@ -22,13 +22,27 @@ else
     start_agent;
 fi
 
-### Aliases
-
+### Basic Aliases
 # Python
 alias py=python
 alias py3=python3
 
-# Google cloud 
+# Misc bash aliases
+alias ll='ls -lah'
+alias histg='history | grep'
+alias hist='history'
+
+# Path stuff
+alias rp='realpath'
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+### Google cloud 
+# Aliases
 alias gc='gcloud compute'
 alias gc-setm='gcloud compute instances set-machine-type'
 alias gc-s='gcloud compute instances start'
@@ -46,6 +60,7 @@ gc-3s() {
     sleep 6
     gcloud compute ssh $1
 }
+
 # Function for just starting and sshing
 gc-2s() {
     gcloud compute instances start $1
@@ -53,26 +68,35 @@ gc-2s() {
     gcloud compute ssh $1
 }
 
-# Misc bash aliases
-alias ll='ls -lah'
-alias histg='history | grep'
-alias hist='history'
+### AWS
+# Aliases
+alias ec='aws ec2'
+alias ec-s='aws ec2 start-instances --instance-ids'
+alias ec-stop='aws ec2 stop-instances --instance-ids'
+alias ec-reboot='aws ec2 reboot-instances --instance-ids'
+alias ec-d='aws ec2 describe-instances --filters "Name=tag:Owner, Values=ksolvik"'
+alias s3-cp='aws s3 cp'
+alias s3-ls='aws s3 ls'
+alias s3-rm='aws s3 rm'
+alias s3-mv='aws s3 mv'
+alias s3-sync='aws s3 sync'
+    
+# Function for connecting to AWS instance
+ec-ssh() {
+    dns=$(aws ec2 describe-instances --instance-ids $1 --query  'Reservations[0].Instances[0].PublicDnsName')
+    dns=$(echo $dns | tr -d '"')
+    ssh ubuntu@${dns}
+}
 
-# Path stuff
-alias rp='realpath'
-alias ..='cd ..'
-alias ...='cd ../../../'
-alias ....='cd ../../../../'
-alias .....='cd ../../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../..'
+# Some env variables for instance IDs
+aid_ci1=i-0d318bcbafba5f735
 
-# Source .bashrc
+### Source .bashrc
 if [ -f ~/.bashrc ]; then 
     source ~/.bashrc 
 fi
 
-# Initiate autojump
+### Initiate autojump
 if [ -f /usr/share/autojump/autojump.sh ];then
     . /usr/share/autojump/autojump.sh
 fi

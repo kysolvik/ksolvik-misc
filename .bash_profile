@@ -88,6 +88,12 @@ ec-ssh() {
     ssh ubuntu@${dns}
 }
 
+# Function to grab IP address
+ec-ip() {
+    ip=$(aws ec2 describe-instances --instance-ids $1 --query  'Reservations[0].Instances[0].PublicIpAddress')
+    echo $ip | tr -d '"'
+}
+
 # Some env variables for instance IDs
 aid_ci1=i-0d318bcbafba5f735
 

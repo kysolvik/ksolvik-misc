@@ -88,6 +88,13 @@ ec-ssh() {
     ssh ubuntu@${dns}
 }
 
+# Function for connecting to AWS instance with non-default ssh key
+ec-ssh-key() {
+    dns=$(aws ec2 describe-instances --instance-ids $2 --query  'Reservations[0].Instances[0].PublicDnsName')
+    dns=$(echo $dns | tr -d '"')
+    ssh -i $1 ec2-user@${dns}
+}
+
 # Function to grab IP address
 ec-ip() {
     ip=$(aws ec2 describe-instances --instance-ids $1 --query  'Reservations[0].Instances[0].PublicIpAddress')
@@ -95,7 +102,20 @@ ec-ip() {
 }
 
 # Some env variables for instance IDs
-aid_ci1=i-0d318bcbafba5f735
+aid_ci1=lookitupdontputthisongithub
+
+### Initiate autojump
+if [ -f /usr/share/autojump/autojump.sh ];then
+    . /usr/share/autojump/autojump.sh
+fi
+
+### Initiate virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source $HOME/.local/bin/virtualenvwrapper.sh
+
+### Pureline
+# source $HOME/.local/lib/pureline/pureline $HOME/.pureline.conf
 
 ### Source .bashrc
 if [ -f ~/.bashrc ]; then 
